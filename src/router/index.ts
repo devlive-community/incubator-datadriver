@@ -11,6 +11,16 @@ const routes: Array<RouteRecordRaw> = [
             path: "index",
             component: () => import("@/views/HomeView.vue")
         }]
+    },
+    {
+        path: '/connector',
+        name: 'connector',
+        redirect: '/connector/home',
+        component: LayoutContainer,
+        children: [{
+            path: "home",
+            component: () => import("@/views/connector/HomeView.vue")
+        }]
     }
 ]
 

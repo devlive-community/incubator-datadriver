@@ -1,45 +1,50 @@
 <template>
   <div>
-    <div class="border-b">
-      <div class="flex h-16 items-center px-4">
-        <!-- Top menu -->
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/">
-                <FontAwesomeIcon :icon="['fas', 'laptop']"/>
-                Query
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        <!-- System settings -->
-        <div class="ml-auto flex items-center space-x-4">
-          <LayoutHeaderRight/>
-        </div>
+    <Menu mode="horizontal" theme="dark" active-name="home">
+      <div class="layout-logo">
+        <RouterLink to="/">
+          <img src="/logo.png"/>
+        </RouterLink>
       </div>
-    </div>
+      <div>
+        <MenuItem name="connector" to="/connector">
+          <FontAwesomeIcon :icon="['fas', 'plug']"/>
+          Connector
+        </MenuItem>
+      </div>
+      <div class="layout-nav">
+      </div>
+    </Menu>
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue'
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu'
-import LayoutHeaderRight from "@/layout/components/LayoutHeaderRight.vue";
 
 export default defineComponent({
-  name: 'LayoutHeader',
-  components: {
-    LayoutHeaderRight,
-    NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle
-  },
+  name: 'LayoutHeader'
 })
 </script>
+
+<style scoped>
+.layout-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 3px;
+  float: left;
+  position: relative;
+  top: 5px;
+  left: 20px;
+  margin-right: 100px;
+}
+
+.layout-logo > a > img {
+  width: 100%;
+  height: 100%;
+}
+
+.layout-nav {
+  width: 420px;
+  margin: 0 20px 0 auto;
+}
+</style>
