@@ -1,0 +1,21 @@
+[package]
+name = "incubator-datadriver"
+version = "2024.2.1"
+description = "DataDriver is an open-source database management tool designed to provide a simple, intuitive user interface to help developers and database administrators effortlessly manage various database operations."
+authors = ["shicheng@devlive.org"]
+license = "MIT"
+repository = "https://github.com/devlive-community/incubator-datadriver"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+tauri = { version = "1.5", features = ["shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
